@@ -11,6 +11,16 @@ function initUserName() {
     //   in the URL as it might come from the LabelMe browser.
     username = getQueryVariable("username");
 
+
+    if(!window.localStorage.getItem('ovannotate') || window.localStorage.getItem('ovannotate') == "fail"){
+        window.location.href = "/login.html";
+    }
+    else{
+        username = window.localStorage.getItem('ovuser');
+    }
+
+    
+
     if (!username || (username.length==0)) {
         username = getCookie("username");
         if (!username || (username.length==0)) {
